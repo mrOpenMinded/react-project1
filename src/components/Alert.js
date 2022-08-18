@@ -7,8 +7,10 @@ function Alert(props) {
     // }
     return (
         <>
-              <div className={`alert alert-${props.alertV.type} alert-dismissible fade show`} role="alert">
-              <strong>{props.alertV.type}</strong>: {props.alertV.msg}
+            <div style={{ height: '50px' }}>
+                <div className={`alert alert-${props.alertV.type} alert-dismissible fade show`} role="alert">
+                    <strong>{props.alertV.type}</strong>: {props.alertV.msg}
+                </div>
             </div>
         </>
     )
