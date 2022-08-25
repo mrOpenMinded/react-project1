@@ -1,10 +1,15 @@
 
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-// import About from './components/About';
+import About from './components/About';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -36,13 +41,20 @@ function App() {
   }
   return (
     <>
-      
+      <Router>
         <Navbar title="Word Finder" aboutText="About" hold={mode} toggleMode={handleToggle} />
         <Alert alertV={alert1} />
         <div className="container my-3">
+          <Switch>
+            <Route path="/">
               <TextForm showAlert={showAlert} heading="Enter the word to Analyze" hold={mode} />
-            {/* <About /> */}
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+          </Switch>
         </div>
+      </Router>
     </>
 
 
