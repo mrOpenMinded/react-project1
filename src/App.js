@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import Alert from './components/Alert';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom";
@@ -45,14 +45,12 @@ function App() {
         <Navbar title="Word Finder" aboutText="About" hold={mode} toggleMode={handleToggle} />
         <Alert alertV={alert1} />
         <div className="container my-3">
-          <Switch>
-            <Route path="/">
-              <TextForm showAlert={showAlert} heading="Enter the word to Analyze" hold={mode} />
+          <Routes>
+            <Route exact path="/about" element={<About />}>
             </Route>
-            <Route path="/about">
-              <About />
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter your text to Analyse below" hold={mode} />}>
             </Route>
-          </Switch>
+          </Routes>
         </div>
       </Router>
     </>
